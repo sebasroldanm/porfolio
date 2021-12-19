@@ -19,6 +19,35 @@
                     <div class="section-inner shadow-sm rounded">
                         <h2 class="heading">Últimos Proyectos</h2>
                         <div class="content">
+                        </div>
+                    </div>
+               </section>
+
+               <section class="latest section">
+                    <div class="section-inner shadow-sm rounded">
+                        <h2 class="heading">Documentación</h2>
+                        <div class="content">
+                            <div class="item featured text-center">
+                                <div class="featured-image has-ribbon">
+                            <pre><code class="language-php">
+use App\Models\Liberty\Cliente;
+use App\Models\Clop\MovimientoPuntos;
+use App\Models\Clop\Puntos;
+
+use Carbon\Carbon;
+
+$date = Carbon::now();
+$mouthNow = Carbon::parse($date->format('Y-m-') . '01');
+$ageFrom = $mouthNow->format('Y-m-d');
+$ageTo = $mouthNow->subMonth()->format('Y-m-d');
+
+$clientes = Cliente::all();
+                                </code></pre>
+                                <div class="ribbon">
+                                    <div class="text">php</div>
+                                </div>
+                                </div>
+                            </div>
 
                             {{-- <div class="item featured text-center">
 
@@ -202,26 +231,26 @@
                                     <h3 class="level-title">php<span class="level-label" data-bs-toggle="tooltip" data-bs-placement="left" title="Experiencia de 2 años, usando versiones desde 5.6 - 7.0 - 7.4 - 8.1 y Framework Laravel junto con CMS WordPress, Prestashop y Shopify"><i class="fas fa-info-circle"></i>Alto</span></h3>
 
                                     <div class="level-bar progress">
-									    <div class="progress-bar level-bar-inner" role="progressbar" style="width: 75%" aria-valuenow="75"  aria-valuemin="0" aria-valuemax="96"></div>
+									    <div class="progress-bar level-bar-inner" role="progressbar" style="width: 81%" aria-valuenow="81"  aria-valuemin="0" aria-valuemax="96"></div>
 									</div><!--//level-bar-->
                                 </div><!--//item-->
 
                                 <div class="item">
                                     <h3 class="level-title">Javascript &amp; jQuery<span class="level-label" data-bs-toggle="tooltip" data-bs-placement="left" title="Experiencia de 2 años"><i class="fas fa-info-circle"></i>Alto</span></h3>
                                     <div class="level-bar progress">
-									    <div class="progress-bar level-bar-inner" role="progressbar" style="width: 70%" aria-valuenow="70"  aria-valuemin="0" aria-valuemax="96"></div>
+									    <div class="progress-bar level-bar-inner" role="progressbar" style="width: 77%" aria-valuenow="77"  aria-valuemin="0" aria-valuemax="96"></div>
 									</div><!--//level-bar-->
                                 </div><!--//item-->
 
                                 <div class="item">
                                     <h3 class="level-title">HTML5, CSS3 &amp; SASS<span class="level-label" data-bs-toggle="tooltip" data-bs-placement="left" title="Uso de Framework Boootstrap y Tailwind"><i class="fas fa-info-circle"></i>Intermedio</span></h3>
                                     <div class="level-bar progress">
-									    <div class="progress-bar level-bar-inner" role="progressbar" style="width: 93%" aria-valuenow="93"  aria-valuemin="0" aria-valuemax="96"></div>
+									    <div class="progress-bar level-bar-inner" role="progressbar" style="width: 72%" aria-valuenow="72"  aria-valuemin="0" aria-valuemax="96"></div>
 									</div><!--//level-bar-->
                                 </div><!--//item-->
 
                                 <div class="item">
-                                    <h3 class="level-title">Dart<span class="level-label" data-bs-toggle="tooltip" data-placement="left" title="Conociminetos elementales para el uso de Flutter"><i class="fas fa-info-circle"></i>Báasico</span></h3>
+                                    <h3 class="level-title">Dart<span class="level-label" data-bs-toggle="tooltip" data-placement="left" title="Conociminetos elementales para el uso de Flutter"><i class="fas fa-info-circle"></i>Básico</span></h3>
                                     <div class="level-bar progress">
 									    <div class="progress-bar level-bar-inner" role="progressbar" style="width: 60%" aria-valuenow="60"  aria-valuemin="0" aria-valuemax="96"></div>
 									</div><!--//level-bar-->

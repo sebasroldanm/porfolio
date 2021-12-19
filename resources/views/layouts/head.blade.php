@@ -26,4 +26,8 @@
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
 
+    <!-- highlightjs -->
+    <link href="{{ asset('assets/prismjs/prism.css') }}" rel="stylesheet" />
+    <script src="{{ asset('assets/prismjs/prism.js') }}"></script>
+
 </head>
