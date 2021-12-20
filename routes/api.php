@@ -23,3 +23,6 @@ Route::resource('doc_types', App\Http\Controllers\API\DocTypeAPIController::clas
 
 
 Route::resource('documentations', App\Http\Controllers\API\DocumentationAPIController::class);
+
+
+Route::resource('content_docs', App\Http\Controllers\API\ContentDocAPIController::class);

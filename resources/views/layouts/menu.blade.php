@@ -11,3 +11,7 @@
     <a class="nav-link" href="{{ route('documentations.index') }}"><i class="fas fa-building"></i><span>Documentación</span></a>
 </li>
 
+<li class="side-menus {{ Request::is('contentDocs*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('contentDocs.index') }}"><i class="fas fa-building"></i><span>Content Docs</span></a>
+</li>
+

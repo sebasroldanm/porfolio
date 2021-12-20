@@ -19,6 +19,7 @@
                        <td class=" text-center">
                            {!! Form::open(['route' => ['documentations.destroy', $documentation->id], 'method' => 'delete']) !!}
                            <div class='btn-group'>
+                               <a href="{!! route('contentDocs.create', 'id='.$documentation->id) !!}" class='btn btn-light action-btn '><i class="fa fa-file"></i></a>
                                <a href="{!! route('documentations.show', [$documentation->id]) !!}" class='btn btn-light action-btn '><i class="fa fa-eye"></i></a>
                                <a href="{!! route('documentations.edit', [$documentation->id]) !!}" class='btn btn-warning action-btn edit-btn'><i class="fa fa-edit"></i></a>
                                {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger action-btn delete-btn', 'onclick' => 'return confirm("Are you sure want to delete this record ?")']) !!}

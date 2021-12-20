@@ -6,3 +6,7 @@ body[data-theme="dark"] div.featured>div>span>a>svg {
 body[data-theme="dark"] div.featured>div>h3 {
     color: white;
 }
+
+.latest .has-ribbon {
+    display: block;
+}

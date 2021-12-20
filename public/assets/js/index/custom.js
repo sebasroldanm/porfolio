@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-    console.log('Entryyy');
-
     $('.copyCode').click(function(e) {
         var url = $(e.currentTarget).children().attr('data-url');
         $(e.currentTarget).attr('title', 'URL Copiada');
@@ -11,5 +9,11 @@ $(document).ready(function(){
         $temp.val(url).select();
         document.execCommand("copy");
         $temp.remove();
+    });
+
+    $('code').each(function () {
+        console.log(this);
+        var textFix = $(this).text().substring(53);
+        $(this).text(textFix);
     });
 });

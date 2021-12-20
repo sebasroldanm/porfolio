@@ -23,7 +23,7 @@ class Documentation extends Model
     use HasFactory;
 
     public $table = 'documentations';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -59,5 +59,13 @@ class Documentation extends Model
         'typeDoc_id' => 'required'
     ];
 
-    
+    /**
+     * Get all of the contentsDoc for the Documentation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function contentsDoc()
+    {
+        return $this->hasMany(ContentDoc::class, 'documentation_id', 'id');
+    }
 }

@@ -40,17 +40,21 @@
                                             </a>
                                         </span>
                                     </div>
-                                    <p></p>
-                                    <div class="featured-image has-ribbon">
-                                        <pre>
-                                            <code class="language-php">
-                                                {{ $documentation->description }}
-                                            </code>
-                                        </pre>
-                                    <div class="ribbon">
-                                        <div class="text">php</div>
-                                    </div>
-                                    </div>
+                                    <p>{{ $documentation->description }}</p>
+                                    <hr>
+                                    @foreach ($documentation->contentsDoc as $contentDoc)
+                                        <p>{{ $contentDoc->description }}</p>
+                                        <div class="featured-image has-ribbon">
+                                            <pre>
+                                                <code class="language-php">
+                                                    {{ $contentDoc->code }}
+                                                </code>
+                                            </pre>
+                                            <div class="ribbon">
+                                                <div class="text">{{ $contentDoc->language }}</div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             @endforeach
 

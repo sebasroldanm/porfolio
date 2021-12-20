@@ -29,3 +29,6 @@ Route::resource('docTypes', App\Http\Controllers\DocTypeController::class);
 
 
 Route::resource('documentations', App\Http\Controllers\DocumentationController::class);
+
+
+Route::resource('contentDocs', App\Http\Controllers\ContentDocController::class);
