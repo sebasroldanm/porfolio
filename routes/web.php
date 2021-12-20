@@ -25,10 +25,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes(['verify' => true]);
 
 
-Route::resource('docTypes', App\Http\Controllers\DocTypeController::class);
+Route::resource('docTypes', App\Http\Controllers\DocTypeController::class)->middleware(['auth','verified']);
 
 
-Route::resource('documentations', App\Http\Controllers\DocumentationController::class);
+Route::resource('documentations', App\Http\Controllers\DocumentationController::class)->middleware(['auth','verified']);
 
 
-Route::resource('contentDocs', App\Http\Controllers\ContentDocController::class);
+Route::resource('contentDocs', App\Http\Controllers\ContentDocController::class)->middleware(['auth','verified']);
