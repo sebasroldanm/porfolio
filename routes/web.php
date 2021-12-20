@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome', compact('documentations'));
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
 Auth::routes(['verify' => true]);
 

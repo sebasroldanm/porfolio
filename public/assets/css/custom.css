@@ -1,0 +1,8 @@
+body[data-theme="dark"] div.featured>div>a>svg,
+body[data-theme="dark"] div.featured>div>span>a>svg {
+    fill: white;
+}
+
+body[data-theme="dark"] div.featured>div>h3 {
+    color: white;
+}
