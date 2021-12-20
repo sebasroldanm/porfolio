@@ -15,7 +15,7 @@
                        <td>{{ $documentation->title }}</td>
             <td>{{ $documentation->slug }}</td>
             <td>{{ $documentation->description }}</td>
-            <td>{{ $documentation->typeDoc_id }}</td>
+            <td>{{ $documentation->typeDoc->type }}</td>
                        <td class=" text-center">
                            {!! Form::open(['route' => ['documentations.destroy', $documentation->id], 'method' => 'delete']) !!}
                            <div class='btn-group'>

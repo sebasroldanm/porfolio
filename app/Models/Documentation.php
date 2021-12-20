@@ -68,4 +68,14 @@ class Documentation extends Model
     {
         return $this->hasMany(ContentDoc::class, 'documentation_id', 'id');
     }
+
+    /**
+     * Get the typeDoc associated with the Documentation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function typeDoc()
+    {
+        return $this->hasOne(DocType::class, 'id', 'typeDoc_id');
+    }
 }
