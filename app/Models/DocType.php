@@ -21,7 +21,7 @@ class DocType extends Model
     use HasFactory;
 
     public $table = 'doc_types';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -51,5 +51,13 @@ class DocType extends Model
         'type' => 'required'
     ];
 
-    
+    /**
+     * Get all of the documentations for the DocType
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function documentations()
+    {
+        return $this->hasMany(Documentation::class, 'typeDoc_id', 'id');
+    }
 }

@@ -3,7 +3,9 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col">
-                <img class="profile-image img-fluid float-start rounded-circle" src="{{ URL::to('/') }}/storage/images/Xsahxb8xfsd.jpg" alt="profile image" />
+                <a href="{{ url('/') }}">
+                    <img class="profile-image img-fluid float-start rounded-circle" src="{{ URL::to('/') }}/storage/images/Xsahxb8xfsd.jpg" alt="profile image" />
+                </a>
                 <div class="profile-content">
                     <h1 class="name">Sebastian Roldan</h1>
                     <h2 class="desc">Web Developer</h2>

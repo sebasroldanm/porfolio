@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\DocType;
 use App\Models\Documentation;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +20,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $documentations = Documentation::all();
     return view('welcome', compact('documentations'));
+});
+
+Route::get('/documentation', function () {
+    $categories = DocType::all()->skip(1);
+    $documentations = Documentation::all();
+    return view('documentation', compact('documentations', 'categories'));
+});
+
+Route::get('/documentation/{slug_url}', function (Request $request) {
+    $documentation = Documentation::where('slug_url', $request->slug_url)->get();
+    // dd($documentation[0]->typeDoc);
+    return view('detailDoc', compact('documentation'));
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');

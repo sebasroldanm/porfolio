@@ -19,7 +19,8 @@
 <!-- Documentation Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('documentation_id', 'Documentation Id:') !!}
-    {!! Form::select('documentation_id', $documentation, null, ['class' => 'form-control', 'disabled' => true]) !!}
+    {{-- {!! Form::select('documentation_id', $documentation, null, ['class' => 'form-control', 'disabled' => true]) !!} --}}
+    {!! Form::select('documentation_id', $documentation, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

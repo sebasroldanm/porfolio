@@ -32,6 +32,7 @@ class Documentation extends Model
     public $fillable = [
         'title',
         'slug',
+        'slug_url',
         'description',
         'typeDoc_id'
     ];
@@ -44,6 +45,7 @@ class Documentation extends Model
     protected $casts = [
         'title' => 'string',
         'slug' => 'string',
+        'slug_url' => 'string',
         'description' => 'string',
         'typeDoc_id' => 'integer'
     ];
@@ -56,6 +58,7 @@ class Documentation extends Model
     public static $rules = [
         'title' => 'required',
         'slug' => 'required',
+        'slug_url' => 'required',
         'typeDoc_id' => 'required'
     ];
 
