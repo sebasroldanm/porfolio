@@ -36,19 +36,22 @@ Route::prefix('v1')->group(function () {
             case 'str':
                 $url = 'https://stripchat.com/api/front/v2/models/username/'.$nickname.'/cam';
                 $platform = 'STR';
+                $response = Http::get($url);
+                $json = $response->json();
+                if (strlen($json['cam']['streamName']) <= 0) {
+                    return response()->json();
+                }
                 break;
             case 'cht':
                 $url = 'https://chaturbate.com/api/chatvideocontext/'.$nickname;
                 $platform = 'CHT';
+                $response = Http::get($url);
+                $json = $response->json();
+                if (!isset($json['hls_source'])) {
+                    return response()->json();
+                }
                 break;
             default:
-                DB::table('api_log')->insert([
-                    'nickname'  => $nickname,
-                    'plataform' => 'FAIL',
-                    'origin'    => 'Consult',
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now(),
-                ]);
                 return response()->json();
                 break;
         }
@@ -59,8 +62,7 @@ Route::prefix('v1')->group(function () {
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-        $response = Http::get($url);
-        return response()->json($response->json());
+        return response()->json($json);
     });
 
     Route::get('stream/{nickname}/{platform}', function($nickname, $platform) {
@@ -69,27 +71,30 @@ Route::prefix('v1')->group(function () {
                 $url = 'https://stripchat.com/api/front/v2/models/username/'.$nickname.'/cam';
                 $response = Http::get($url);
                 $json = $response->json();
-                $hls = $json['cam']['viewServers']['flashphoner-hls'];
-                $streamName = $json['cam']['streamName'];
-                $url_stream = 'https://b-'.$hls.'.strpst.com/hls/'.$streamName.'/'.$streamName.'.m3u8';
+                if (strlen($json['cam']['streamName']) > 0) {
+                    $hls = $json['cam']['viewServers']['flashphoner-hls'];
+                    $streamName = $json['cam']['streamName'];
+                    $url_stream = 'https://b-'.$hls.'.strpst.com/hls/'.$streamName.'/'.$streamName.'.m3u8';
+                } else {
+                    return response()->json();
+                }
                 break;
             case 'cht':
                 $url = 'https://chaturbate.com/api/chatvideocontext/'.$nickname;
                 $response = Http::get($url);
                 $json = $response->json();
-                $url_stream = $json['hls_source'];
+                if (isset($json['hls_source'])) {
+                    $url_stream = $json['hls_source'];
+                } else {
+                    return response()->json();
+                }
                 break;
             default:
-                DB::table('api_log')->insert([
-                    'nickname'  => $nickname,
-                    'plataform' => 'FAIL',
-                    'origin'    => 'Stream',
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now(),
-                ]);
                 return response()->json();
                 break;
         }
+
+
         DB::table('api_log')->insert([
             'nickname'  => $nickname,
             'plataform' => $platform,
