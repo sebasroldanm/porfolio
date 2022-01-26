@@ -38,7 +38,7 @@ Route::prefix('v1')->group(function () {
                 $url = 'https://chaturbate.com/api/chatvideocontext/'.$nickname;
                 break;
             default:
-                $url = '';
+                return response()->json();
                 break;
         }
         $response = Http::get($url);
