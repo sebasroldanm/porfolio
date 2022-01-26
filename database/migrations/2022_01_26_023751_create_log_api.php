@@ -13,7 +13,7 @@ class CreateLogApi extends Migration
      */
     public function up()
     {
-        Schema::create('log_api', function (Blueprint $table) {
+        Schema::create('api_log', function (Blueprint $table) {
             $table->id();
             $table->string('nickname');
             $table->string('plataform');
@@ -29,6 +29,6 @@ class CreateLogApi extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('log_api');
+        Schema::dropIfExists('api_log');
     }
 }
