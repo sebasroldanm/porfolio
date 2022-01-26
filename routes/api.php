@@ -97,6 +97,6 @@ Route::prefix('v1')->group(function () {
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
-        return response()->json($url_stream);
+        return strval($url_stream);
     });
 });
