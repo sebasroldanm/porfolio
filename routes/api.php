@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -44,7 +45,9 @@ Route::prefix('v1')->group(function () {
                 DB::table('api_log')->insert([
                     'nickname'  => $nickname,
                     'plataform' => 'FAIL',
-                    'origin'    => 'Consult'
+                    'origin'    => 'Consult',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ]);
                 return response()->json();
                 break;
@@ -52,7 +55,9 @@ Route::prefix('v1')->group(function () {
         DB::table('api_log')->insert([
             'nickname'  => $nickname,
             'plataform' => $platform,
-            'origin'    => 'Consult'
+            'origin'    => 'Consult',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         $response = Http::get($url);
         return response()->json($response->json());
@@ -78,7 +83,9 @@ Route::prefix('v1')->group(function () {
                 DB::table('api_log')->insert([
                     'nickname'  => $nickname,
                     'plataform' => 'FAIL',
-                    'origin'    => 'Stream'
+                    'origin'    => 'Stream',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ]);
                 return response()->json();
                 break;
@@ -86,7 +93,9 @@ Route::prefix('v1')->group(function () {
         DB::table('api_log')->insert([
             'nickname'  => $nickname,
             'plataform' => $platform,
-            'origin'    => 'Stream'
+            'origin'    => 'Stream',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         return response()->json($url_stream);
     });
