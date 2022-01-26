@@ -38,7 +38,9 @@ Route::prefix('v1')->group(function () {
                 $platform = 'STR';
                 $response = Http::get($url);
                 $json = $response->json();
-                if (strlen($json['cam']['streamName']) <= 0) {
+                if (isset($json['error'])) {
+                    return response()->json();
+                } elseif (strlen($json['cam']['streamName']) <= 0) {
                     return response()->json();
                 }
                 break;
@@ -71,7 +73,11 @@ Route::prefix('v1')->group(function () {
                 $url = 'https://stripchat.com/api/front/v2/models/username/'.$nickname.'/cam';
                 $response = Http::get($url);
                 $json = $response->json();
-                if (strlen($json['cam']['streamName']) > 0) {
+                if (isset($json['error'])) {
+                    return response()->json();
+                } elseif (strlen($json['cam']['streamName']) <= 0) {
+                    return response()->json();
+                } elseif (strlen($json['cam']['streamName']) > 0) {
                     $hls = $json['cam']['viewServers']['flashphoner-hls'];
                     $streamName = $json['cam']['streamName'];
                     $url_stream = 'https://b-'.$hls.'.strpst.com/hls/'.$streamName.'/'.$streamName.'.m3u8';
