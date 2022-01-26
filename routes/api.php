@@ -57,13 +57,13 @@ Route::prefix('v1')->group(function () {
                 return response()->json();
                 break;
         }
-        DB::table('api_log')->insert([
-            'nickname'  => $nickname,
-            'plataform' => $platform,
-            'origin'    => 'Consult',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
+        // DB::table('api_log')->insert([
+        //     'nickname'  => $nickname,
+        //     'plataform' => $platform,
+        //     'origin'    => 'Consult',
+        //     'created_at' => Carbon::now(),
+        //     'updated_at' => Carbon::now(),
+        // ]);
         return response()->json($json);
     });
 
@@ -101,13 +101,13 @@ Route::prefix('v1')->group(function () {
         }
 
 
-        DB::table('api_log')->insert([
-            'nickname'  => $nickname,
-            'plataform' => $platform,
-            'origin'    => 'Stream',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
+        // DB::table('api_log')->insert([
+        //     'nickname'  => $nickname,
+        //     'plataform' => $platform,
+        //     'origin'    => 'Stream',
+        //     'created_at' => Carbon::now(),
+        //     'updated_at' => Carbon::now(),
+        // ]);
         return strval($url_stream);
     });
 });
