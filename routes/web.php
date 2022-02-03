@@ -2,8 +2,10 @@
 
 use App\Models\DocType;
 use App\Models\Documentation;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +19,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Request $request) {
+    DB::table('log_visitors')->insert([
+        'ip' => $request->ip(),
+        'user-agent' => $request->header('user-agent'),
+        'created_at' => Carbon::now(),
+        'updated_at' => Carbon::now(),
+    ]);
     $documentations = Documentation::all();
     return view('welcome', compact('documentations'));
 });
