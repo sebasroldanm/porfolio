@@ -20,13 +20,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function (Request $request) {
-    DB::table('log_visitors')->insert([
-        'ip' => $request->ip(),
-        'user-agent' => $request->header('user-agent'),
-        'created_at' => Carbon::now(),
-        'updated_at' => Carbon::now(),
-    ]);
-    $documentations = Documentation::all();
+    // DB::table('log_visitors')->insert([
+    //     'ip' => $request->ip(),
+    //     'user-agent' => $request->header('user-agent'),
+    //     'created_at' => Carbon::now(),
+    //     'updated_at' => Carbon::now(),
+    // ]);
+    // $documentations = Documentation::all();
     return view('welcome', compact('documentations'));
 });
 
